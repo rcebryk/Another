@@ -5,7 +5,7 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("IT AD Rzeszów 2015!")
 
     menuBar: MenuBar {
         Menu {
@@ -18,6 +18,20 @@ ApplicationWindow {
                 text: qsTr("Open Red")
                 onTriggered: stack.push(anotherRed);
             }
+            MenuItem {
+                text: qsTr("Open Default")
+                onTriggered: stack.push(view);
+            }
+            MenuItem {
+                text: qsTr("Back")
+                onTriggered: stack.pop();
+            }
+        }
+    }
+
+    statusBar: StatusBar {
+        Label {
+            text: "Stack depth: "+stack.depth
         }
     }
 
