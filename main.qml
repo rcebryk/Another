@@ -49,6 +49,18 @@ ApplicationWindow {
                     Component.onCompleted: kolumna.kolory.push("orange");
                     width: parent.width
                 }
+                Button {
+                    text: "Pierwszy kolor"
+                    onClicked: kolumna.numerKoloru=0;
+                    anchors.left: parent.left
+                    anchors.right: parent.horizontalCenter
+                }
+                Button {
+                    text: "Ustaw zielony"
+                    onClicked: kolumna.kolorowyKwadrat.color = "green";
+                    anchors.left: parent.horizontalCenter
+                    anchors.right: parent.right
+                }
             }
         }
     }

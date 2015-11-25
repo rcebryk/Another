@@ -5,6 +5,7 @@ Column {
     id: kolumna
     property int numerKoloru: 0
     property var kolory: ["yellow", "red", "blue", "purple"]
+    property alias kolorowyKwadrat: kolorowyKwadrat
     
     Rectangle {
         id: kolorowyKwadrat
