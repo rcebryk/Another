@@ -44,23 +44,11 @@ ApplicationWindow {
         Component {
             id: view
             Column {
-                id: kolumna
-                property int numerKoloru: 0
-                property var kolory: ["yellow", "red", "blue", "purple"]
-
-                Rectangle {
-                    id: kolorowyKwadrat
-                    color: kolumna.kolory[kolumna.numerKoloru]
-                    height: 50
+                KolorowaKolumna {
+                    id: kolumna
+                    Component.onCompleted: kolumna.kolory.push("orange");
                     width: parent.width
                 }
-
-                Button {
-                    text: "Zmien kolor"
-                    onClicked: kolumna.numerKoloru = (kolumna.numerKoloru + 1) % kolumna.kolory.length;
-                    width: parent.width
-                }
-                Component.onCompleted: kolumna.kolory.push("orange");
             }
         }
     }
