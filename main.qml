@@ -9,21 +9,49 @@ ApplicationWindow {
 
     menuBar: MenuBar {
         Menu {
-            title: qsTr("File")
+            title: qsTr("Stack Option")
             MenuItem {
-                text: qsTr("&Open")
-                onTriggered: console.log("Open action triggered");
+                text: qsTr("Open Blue")
+                onTriggered: stack.push(anotherBlue);
             }
             MenuItem {
-                text: qsTr("Exit")
-                onTriggered: Qt.quit();
+                text: qsTr("Open Red")
+                onTriggered: stack.push(anotherRed);
             }
         }
     }
 
-    Label {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
+    StackView {
+        id: stack
+        anchors.fill: parent
+        initialItem: view
+
+
+        Component {
+            id: view
+            Column {
+                Rectangle {
+                    id: kolorowyKwadrat
+                    color: "yellow"
+                    height: 50
+                    width: parent.width
+                }
+            }
+        }
+    }
+
+    Component {
+        id: anotherBlue
+        Rectangle {
+            color: "blue"
+        }
+    }
+
+    Component {
+        id: anotherRed
+        Rectangle {
+            color: "red"
+        }
     }
 }
 
