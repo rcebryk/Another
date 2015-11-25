@@ -27,6 +27,13 @@ ApplicationWindow {
                 onTriggered: stack.pop();
             }
         }
+        Menu {
+            title: "Inner Page"
+            MenuItem {
+                text: "Przywróc binding";
+                onTriggered: stack.recoverLocalBinding();
+            }
+        }
     }
 
     statusBar: StatusBar {
@@ -39,15 +46,20 @@ ApplicationWindow {
         id: stack
         anchors.fill: parent
         initialItem: view
-
+        signal recoverLocalBinding
 
         Component {
             id: view
             Column {
+                Component.onCompleted: stack.recoverLocalBinding.connect(kolumna.recover)
+                 Component.onDestruction: stack.recoverLocalBinding.disconnect(kolumna.recover)
                 KolorowaKolumna {
                     id: kolumna
                     Component.onCompleted: kolumna.kolory.push("orange");
                     width: parent.width
+                    function recover() {
+                        kolumna.state = "ColorMatched";
+                    }
                 }
                 Button {
                     text: "Pierwszy kolor"
@@ -57,7 +69,10 @@ ApplicationWindow {
                 }
                 Button {
                     text: "Ustaw zielony"
-                    onClicked: kolumna.kolorowyKwadrat.color = "green";
+                    onClicked: {
+                        kolumna.kolorowyKwadrat.color = "green";
+                        kolumna.state = "default";
+                    }
                     anchors.left: parent.horizontalCenter
                     anchors.right: parent.right
                 }

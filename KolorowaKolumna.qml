@@ -19,4 +19,13 @@ Column {
         onClicked: kolumna.numerKoloru = (kolumna.numerKoloru + 1) % kolumna.kolory.length;
         width: parent.width
     }
+    states: [
+        State {
+            name: "ColorMatched"
+            PropertyChanges {
+                target: kolorowyKwadrat
+                color: kolumna.kolory[kolumna.numerKoloru]
+            }
+        }
+    ]
 }
