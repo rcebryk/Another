@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>KolorowaKolumna.qml</file>
+        <file>AnimatedPage.qml</file>
     </qresource>
 </RCC>

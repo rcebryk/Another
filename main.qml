@@ -76,6 +76,14 @@ ApplicationWindow {
                     anchors.left: parent.horizontalCenter
                     anchors.right: parent.right
                 }
+
+                Button {
+                    text: "Otwórz animacje"
+                    anchors.left: parent.left
+                    anchors.right: parent.horizontalCenter
+                    property Component animatedPage: AnimatedPage {}
+                    onClicked: stack.push(animatedPage);
+                }
             }
         }
     }
