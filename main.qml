@@ -45,7 +45,7 @@ ApplicationWindow {
     StackView {
         id: stack
         anchors.fill: parent
-        initialItem: view
+        initialItem: anotherBlue
         signal recoverLocalBinding
 
         Component {
@@ -92,6 +92,12 @@ ApplicationWindow {
         id: anotherBlue
         Rectangle {
             color: "blue"
+
+            Label {
+                anchors.centerIn: parent
+                text: ""+currentDatetime
+                color: "yellow"
+            }
         }
     }
 
