@@ -94,8 +94,17 @@ ApplicationWindow {
             color: "blue"
 
             Label {
+                id: dateTimeLabel
                 anchors.centerIn: parent
                 text: ""+currentDatetime
+                color: "yellow"
+            }
+            Label  {
+                anchors {
+                    top: dateTimeLabel.bottom
+                    horizontalCenter: parent.horizontalCenter
+                }
+                text: worker.name
                 color: "yellow"
             }
         }
